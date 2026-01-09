@@ -2,17 +2,24 @@
 
 namespace App\Controller;
 
+use App\Repository\PageRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Routing\Annotation\Route;
 
-final class PageController extends AbstractController
+class PageController extends AbstractController
 {
-    #[Route('/page', name: 'app_page')]
-    public function index(): Response
+    #[Route('/{slug}', name: 'page_show')]
+    public function show(string $slug, PageRepository $pageRepository): Response
     {
-        return $this->render('page/index.html.twig', [
-            'controller_name' => 'PageController',
+        $page = $pageRepository->findOneBy(['slug' => $slug]);
+
+        if (!$page) {
+            throw $this->createNotFoundException('Page non trouvée');
+        }
+
+        return $this->render('page/show.html.twig', [
+            'page' => $page,
         ]);
     }
 }

@@ -1,0 +1,477 @@
+/* =========================
+   RESET MINIMAL
+========================= */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* =========================
+   HEADER
+========================= */
+.site-header {
+    border-bottom: 1px solid #e5e5e5;
+    background-color: #fff;
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 64px;
+}
+
+/* Branding */
+.site-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* Navigation mobile (par défaut cachée) */
+.main-navigation {
+    position: absolute;
+    top: 64px;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    border-bottom: 1px solid #e5e5e5;
+    display: none;
+}
+
+.main-navigation.is-open {
+    display: block;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-list li a {
+    display: block;
+    padding: 1rem;
+    border-top: 1px solid #f0f0f0;
+}
+
+.nav-contact a {
+    font-weight: 600;
+}
+
+/* Bouton menu mobile */
+.menu-toggle {
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* =========================
+   FOOTER
+========================= */
+.site-footer {
+    background-color: #f8f8f8;
+    margin-top: 4rem;
+    padding: 2rem 0;
+    font-size: 0.9rem;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.footer-block h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.footer-nav {
+    list-style: none;
+}
+
+.footer-nav li {
+    margin-bottom: 0.4rem;
+}
+
+.footer-bottom {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #666;
+}
+
+/* =========================
+   DESKTOP (>= 768px)
+========================= */
+@media (min-width: 768px) {
+
+    /* Header */
+    .menu-toggle {
+        display: none;
+    }
+
+    .main-navigation {
+        position: static;
+        display: block;
+        width: auto;
+        border: none;
+    }
+
+    .nav-list {
+        flex-direction: row;
+        gap: 1.5rem;
+        align-items: center;
+    }
+
+    .nav-list li a {
+        padding: 0;
+        border: none;
+    }
+
+    /* Footer */
+    .footer-content {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+/* =========================
+   CONTACT BOX (GLOBAL)
+========================= */
+.contact-box {
+    margin-top: 4rem;
+    padding: 2.5rem 0;
+    background-color: #f3f6f5;
+    text-align: center;
+}
+
+.contact-box-title {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.contact-box-text {
+    max-width: 600px;
+    margin: 0 auto 1.5rem;
+}
+
+.contact-box-actions {
+    margin-bottom: 1rem;
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: #2f6f6a;
+    color: #fff;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: #285f5a;
+}
+
+.contact-box-note {
+    font-size: 0.85rem;
+    color: #555;
+}
+
+/* =========================
+   CONTACT STICKY MOBILE
+========================= */
+.contact-sticky-mobile {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #2f6f6a;
+    padding: 0.75rem;
+    text-align: center;
+    z-index: 1000;
+}
+
+.contact-sticky-btn {
+    color: #fff;
+    font-weight: 600;
+    display: block;
+}
+
+/* Masqué sur desktop */
+@media (min-width: 768px) {
+    .contact-sticky-mobile {
+        display: none;
+    }
+}
+
+/* =========================
+   HOME PAGE
+========================= */
+.hero {
+    background-color: #f3f6f5;
+    padding: 3rem 0;
+}
+
+.hero h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.hero-intro {
+    max-width: 600px;
+}
+
+.intro {
+    padding: 2.5rem 0;
+}
+
+.for-who {
+    background-color: #fafafa;
+    padding: 2.5rem 0;
+}
+
+.for-who-list {
+    list-style: none;
+    margin-top: 1rem;
+}
+
+.for-who-list li {
+    padding-left: 1.2rem;
+    margin-bottom: 0.6rem;
+    position: relative;
+}
+
+.for-who-list li::before {
+    content: "–";
+    position: absolute;
+    left: 0;
+    color: #2f6f6a;
+}
+
+.home-links {
+    padding: 2.5rem 0;
+}
+
+.link-card {
+    display: block;
+    padding: 1.2rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.link-card:hover {
+    background-color: #f3f6f5;
+}
+
+/* =========================
+   PAGE CONTENT
+========================= */
+.page-content {
+    padding: 3rem 0;
+}
+
+.page-text {
+    max-width: 700px;
+    margin-bottom: 2rem;
+}
+
+.page-text p {
+    margin-bottom: 1rem;
+}
+
+.pro-frame {
+    padding: 1.5rem;
+    background-color: #f3f6f5;
+    border-left: 4px solid #2f6f6a;
+}
+
+/* =========================
+   PAGE GESTALT
+========================= */
+.page-gestalt-therapie .page-text {
+    font-size: 1.05rem;
+}
+
+.page-gestalt-therapie .page-text h2 {
+    margin-top: 2rem;
+    margin-bottom: 0.8rem;
+    font-size: 1.3rem;
+}
+
+.page-gestalt-therapie .page-text ul {
+    margin: 1rem 0;
+    padding-left: 1.2rem;
+}
+
+.page-gestalt-therapie .page-text li {
+    margin-bottom: 0.5rem;
+}
+
+/* =========================
+   PAGE POUR QUI
+========================= */
+.page-pour-qui .page-text ul {
+    list-style: none;
+    margin-top: 1.5rem;
+}
+
+.page-pour-qui .page-text li {
+    padding-left: 1.2rem;
+    position: relative;
+    margin-bottom: 0.7rem;
+}
+
+.page-pour-qui .page-text li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #2f6f6a;
+}
+
+/* =========================
+   PAGE INFOS PRATIQUES
+========================= */
+.page-infos-pratiques .page-text {
+    max-width: 600px;
+}
+
+.infos-block {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: #f3f6f5;
+    border-radius: 4px;
+}
+
+.infos-block p {
+    margin-bottom: 0.8rem;
+}
+
+.infos-block strong {
+    color: #2f6f6a;
+}
+
+/* ==============================
+   Formulaire Contact - Styles
+   ============================== */
+
+form {
+    max-width: 600px;      /* largeur max */
+    margin: 2rem auto;     /* centrer horizontalement */
+    padding: 2rem;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    font-family: 'Arial', sans-serif;
+}
+
+form h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #2c3e50;
+}
+
+form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #34495e;
+}
+
+form input[type="text"],
+form input[type="email"],
+form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1.2rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border 0.2s, box-shadow 0.2s;
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form textarea:focus {
+    border-color: #6c5ce7;
+    box-shadow: 0 0 5px rgba(108,92,231,0.3);
+    outline: none;
+}
+
+form textarea {
+    min-height: 120px;
+    resize: vertical; /* utilisateur peut redimensionner verticalement */
+}
+
+form button[type="submit"] {
+    background-color: #6c5ce7;
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+form button[type="submit"]:hover {
+    background-color: #5a4bd1;
+    transform: translateY(-2px);
+}
+
+.flash-success {
+    background-color: #d4edda;
+    color: #155724;
+    border-left: 4px solid #28a745;
+    padding: 0.8rem 1rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+}
+
+.flash-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border-left: 4px solid #dc3545;
+    padding: 0.8rem 1rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+}
+
+/* Responsive - mobile-first */
+@media (max-width: 600px) {
+    form {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+    
+    form button[type="submit"] {
+        width: 100%;
+    }
+}
