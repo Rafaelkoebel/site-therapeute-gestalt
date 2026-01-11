@@ -1,4 +1,9 @@
-<section class="page-content">
+{% extends 'base.html.twig' %}
+
+
+
+{% block body %}
+<section class="page-content page-{{ page.slug }}">
     <div class="container">
 
         <h1>{{ page.titre }}</h1>
@@ -17,3 +22,6 @@
 
     </div>
 </section>
+
+
+{% endblock %}
