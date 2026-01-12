@@ -14,13 +14,22 @@ class InfoPratique
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $typeInfo = null;
+    private ?string $lieu = null;
+
+    #[ORM\Column(length: 100)]
+    private ?string $duree = null;
+
+    #[ORM\Column(type: 'decimal', precision: 6, scale: 2)]
+    private ?float $tarif = null;
+
+    #[ORM\Column(length: 100)]
+    private ?string $rythme = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $valeur = null;
+    private ?string $modalitesPaiement = null;
 
-    #[ORM\Column]
-    private ?int $ordre = null;
+    #[ORM\Column(type: 'text')]
+    private ?string $cadreAnnulation = null;
 
     #[ORM\ManyToOne(inversedBy: 'infoPratiques')]
     private ?Therapeute $therapeute = null;
@@ -30,38 +39,74 @@ class InfoPratique
         return $this->id;
     }
 
-    public function getTypeInfo(): ?string
+    public function getLieu(): ?string
     {
-        return $this->typeInfo;
+        return $this->lieu;
     }
 
-    public function setTypeInfo(string $typeInfo): static
+    public function setLieu(string $lieu): self
     {
-        $this->typeInfo = $typeInfo;
+        $this->lieu = $lieu;
 
         return $this;
     }
 
-    public function getValeur(): ?string
+    public function getDuree(): ?string
     {
-        return $this->valeur;
+        return $this->duree;
     }
 
-    public function setValeur(string $valeur): static
+    public function setDuree(string $duree): self
     {
-        $this->valeur = $valeur;
+        $this->duree = $duree;
 
         return $this;
     }
 
-    public function getOrdre(): ?int
+    public function getTarif(): ?float
     {
-        return $this->ordre;
+        return $this->tarif;
     }
 
-    public function setOrdre(int $ordre): static
+    public function setTarif(float $tarif): self
     {
-        $this->ordre = $ordre;
+        $this->tarif = $tarif;
+
+        return $this;
+    }
+
+    public function getRythme(): ?string
+    {
+        return $this->rythme;
+    }
+
+    public function setRythme(string $rythme): self
+    {
+        $this->rythme = $rythme;
+
+        return $this;
+    }
+
+    public function getModalitesPaiement(): ?string
+    {
+        return $this->modalitesPaiement;
+    }
+
+    public function setModalitesPaiement(string $modalitesPaiement): self
+    {
+        $this->modalitesPaiement = $modalitesPaiement;
+
+        return $this;
+    }
+
+    public function getCadreAnnulation(): ?string
+    {
+        return $this->cadreAnnulation;
+    }
+
+    public function setCadreAnnulation(string $cadreAnnulation): self
+    {
+        $this->cadreAnnulation = $cadreAnnulation;
 
         return $this;
     }

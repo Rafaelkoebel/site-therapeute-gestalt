@@ -2,19 +2,24 @@
 
 namespace App\Controller\Admin;
 
-use EasyCorp\Bundle\EasyAdminBundle\Attribute\AdminDashboard;
-use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
-use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
-use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
+use App\Entity\Page;
+use App\Entity\Therapeute;
+use App\Entity\InfoPratique;
+use App\Entity\MessageContact;
 use Symfony\Component\HttpFoundation\Response;
+use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
+use EasyCorp\Bundle\EasyAdminBundle\Attribute\AdminDashboard;
+use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
+use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 
 #[AdminDashboard(routePath: '/admin', routeName: 'admin')]
 class AdminDashboardController extends AbstractDashboardController
 {
     public function index(): Response
     {
-        return parent::index();
-
+/*         return parent::index();
+ */
         // Option 1. You can make your dashboard redirect to some common page of your backend
         //
         // 1.1) If you have enabled the "pretty URLs" feature:
@@ -24,7 +29,7 @@ class AdminDashboardController extends AbstractDashboardController
         // $adminUrlGenerator = $this->container->get(AdminUrlGenerator::class);
         // return $this->redirect($adminUrlGenerator->setController(OneOfYourCrudController::class)->generateUrl());
 
-        // Option 2. You can make your dashboard redirect to different pages depending on the user
+        // Option 2. You can make your dashboard redirect to different  depending on the user
         //
         // if ('jane' === $this->getUser()->getUsername()) {
         //     return $this->redirectToRoute('...');
@@ -45,6 +50,10 @@ class AdminDashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
+        yield MenuItem::linkToCrud('Thérapeute', 'fa fa-user', Therapeute::class);
+        yield MenuItem::linkToCrud('Pages', 'fa fa-file', Page::class);
+        yield MenuItem::linkToCrud('InfosPratiques', 'fa fa-file', InfoPratique::class);
+        yield MenuItem::linkToCrud('MessageContact', 'fa fa-file', MessageContact::class);
         // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
     }
 }

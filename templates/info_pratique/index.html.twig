@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Infos pratiques{% endblock %}
+
+{% block body %}
+<h1>Infos pratiques</h1>
+
+<ul>
+    <li><strong>Lieu :</strong> {{ info.lieu }}</li>
+    <li><strong>Durée :</strong> {{ info.duree }}</li>
+    <li><strong>Tarif :</strong> {{ info.tarif }} €</li>
+    <li><strong>Rythme :</strong> {{ info.rythme }}</li>
+    <li><strong>Paiement :</strong> {{ info.modalitesPaiement }}</li>
+    <li><strong>Annulation :</strong> {{ info.cadreAnnulation }}</li>
+</ul>
+{% endblock %}
