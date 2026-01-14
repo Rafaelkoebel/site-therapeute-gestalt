@@ -5,8 +5,11 @@ namespace App\Entity;
 use App\Repository\PageRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\String\Slugger\SluggerInterface;
+
 
 #[ORM\Entity(repositoryClass: PageRepository::class)]
+#[ORM\HasLifecycleCallbacks]
 class Page
 {
     #[ORM\Id]
@@ -23,11 +26,11 @@ class Page
     #[ORM\Column(type: Types::TEXT)]
     private ?string $contenu = null;
 
-    #[ORM\Column]
+    #[ORM\Column(type: 'integer', nullable: true)]
     private ?int $ordre = null;
 
-    #[ORM\Column]
-    private ?bool $visible = null;
+    #[ORM\Column(type: 'boolean')]
+    private bool $visible = true;
 
     #[ORM\ManyToOne(inversedBy: 'pages')]
     private ?Therapeute $therapeute = null;
@@ -73,27 +76,26 @@ class Page
         return $this;
     }
 
+
     public function getOrdre(): ?int
     {
         return $this->ordre;
     }
 
-    public function setOrdre(int $ordre): static
+    public function setOrdre(?int $ordre): self
     {
         $this->ordre = $ordre;
-
         return $this;
     }
 
-    public function isVisible(): ?bool
+    public function isVisible(): bool
     {
         return $this->visible;
     }
 
-    public function setVisible(bool $visible): static
+    public function setVisible(bool $visible): self
     {
         $this->visible = $visible;
-
         return $this;
     }
 
@@ -107,5 +109,19 @@ class Page
         $this->therapeute = $therapeute;
 
         return $this;
+    }
+
+
+    #[ORM\PrePersist]
+    #[ORM\PreUpdate]
+    public function generateSlug(): void
+    {
+        if (!$this->slug && $this->titre) {
+            $this->slug = strtolower(
+                trim(
+                    preg_replace('/[^A-Za-z0-9-]+/', '-', $this->titre)
+                )
+            );
+        }
     }
 }
