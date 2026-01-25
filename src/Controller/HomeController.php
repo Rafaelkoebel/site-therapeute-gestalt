@@ -2,17 +2,24 @@
 
 namespace App\Controller;
 
+use App\Repository\PageRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Routing\Annotation\Route;
 
-final class HomeController extends AbstractController
+class HomeController extends AbstractController
 {
     #[Route('/', name: 'home')]
-    public function index(): Response
+    public function index(PageRepository $pageRepository): Response
     {
+        $page = $pageRepository->findOneBy(['isHome' => true]);
+
+        if (!$page) {
+            throw $this->createNotFoundException('Page d’accueil non définie');
+        }
+
         return $this->render('home/index.html.twig', [
-            'controller_name' => 'HomeController',
+            'page' => $page,
         ]);
     }
 }

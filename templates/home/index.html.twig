@@ -1,51 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Accueil – Thérapeute Gestalt{% endblock %}
+{% block title %}{{ page.titre }}{% endblock %}
 
 {% block body %}
+<section class="home">
+    <h1>{{ page.titre }}</h1>
 
-<section class="hero">
-    <div class="container">
-        <h1>Thérapeute gestalt à {{ ville|default('Blois') }}</h1>
-
-        <p class="hero-intro">
-            Un espace pour explorer ce que vous vivez, dans la relation et l’instant présent.
-        </p>
+    <div class="home-content">
+        {{ page.contenu|raw }}
     </div>
 </section>
-
-<section class="intro">
-    <div class="container">
-        <p>
-            Il arrive qu’un moment de vie invite à s’arrêter, à écouter ce qui se passe en soi.
-            Je propose un accompagnement en Gestalt-thérapie, dans un cadre bienveillant et confidentiel.
-        </p>
-    </div>
-</section>
-
-<section class="for-who">
-    <div class="container">
-        <h2>À qui s’adresse cet accompagnement ?</h2>
-
-        <ul class="for-who-list">
-            <li>Mal-être ou fatigue émotionnelle</li>
-            <li>Difficultés relationnelles</li>
-            <li>Période de transition ou de changement</li>
-            <li>Besoin de mieux se comprendre</li>
-        </ul>
-    </div>
-</section>
-
-<section class="home-links">
-    <div class="container">
-        <a href="{{ path('page_show', { slug: 'gestalt-therapie' }) }}" class="link-card">
-            Découvrir la Gestalt-thérapie
-        </a>
-
-        <a href="{{ path('contact') }}" class="link-card">
-            Me contacter pour un premier échange
-        </a>
-    </div>
-</section>
-
 {% endblock %}

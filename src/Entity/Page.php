@@ -26,11 +26,8 @@ class Page
     #[ORM\Column(type: Types::TEXT)]
     private ?string $contenu = null;
 
-    #[ORM\Column(type: 'integer', nullable: true)]
-    private ?int $ordre = null;
-
     #[ORM\Column(type: 'boolean')]
-    private bool $visible = true;
+    private bool $isHome = true;
 
     #[ORM\ManyToOne(inversedBy: 'pages')]
     private ?Therapeute $therapeute = null;
@@ -76,28 +73,17 @@ class Page
         return $this;
     }
 
-
-    public function getOrdre(): ?int
+    public function isHome(): bool
     {
-        return $this->ordre;
+        return $this->isHome;
     }
 
-    public function setOrdre(?int $ordre): self
+    public function setIsHome(bool $isHome): self
     {
-        $this->ordre = $ordre;
+        $this->isHome = $isHome;
         return $this;
     }
 
-    public function isVisible(): bool
-    {
-        return $this->visible;
-    }
-
-    public function setVisible(bool $visible): self
-    {
-        $this->visible = $visible;
-        return $this;
-    }
 
     public function getTherapeute(): ?Therapeute
     {
