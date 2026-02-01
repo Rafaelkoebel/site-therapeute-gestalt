@@ -2,43 +2,57 @@
 
 namespace App\Controller;
 
-use App\Form\ContactType;
-use App\Entity\Therapeute;
+use App\Entity\Contact;
 use App\Entity\MessageContact;
+use App\Form\ContactType;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
 
 class ContactController extends AbstractController
 {
     #[Route('/contact', name: 'contact')]
-    public function index(Request $request, EntityManagerInterface $em): Response
-    {
-        $message = new MessageContact();
-        $form = $this->createForm(ContactType::class, $message);
+    public function index(
+        Request $request,
+        EntityManagerInterface $entityManager,
+        MailerInterface $mailer
+    ): Response {
+        $contact = new MessageContact();
 
+        $form = $this->createForm(ContactType::class, $contact);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // 1️⃣ Enregistrer la date d’envoi automatiquement
-            $message->setDateEnvoi(new \DateTime());
 
-            // 2️⃣ Assigner automatiquement le thérapeute (id = 1 si tu n'as qu'un seul thérapeute)
-            $therapeute = $em->getRepository(Therapeute::class)->find(1);
-            $message->setTherapeute($therapeute);
+            // 1️⃣ Sauvegarde en base (back-office)
+            $contact->setDateEnvoi(new \DateTime());
+            $entityManager->persist($contact);
+            $entityManager->flush();
 
-            // 3️⃣ Enregistrer en base
-            $em->persist($message);
-            $em->flush();
+            // 2️⃣ Envoi de l’email
+            $email = (new Email())
+                ->from('gestalt@tonsite.fr')
+                ->to('rafael.koebel@gmail.com')
+                ->replyTo($contact->getEmail())
+                ->subject('Nouveau message depuis le site')
+                ->text(
+                    "Nom : {$contact->getNom()}\n" .
+                        "Email : {$contact->getEmail()}\n\n" .
+                        "Message :\n{$contact->getMessage()}"
+                );
 
-            // 4️⃣ Message flash
-            $this->addFlash('success', 'Votre message a été envoyé avec succès !');
+            $mailer->send($email);
 
-            // 5️⃣ Redirection
+            // 3️⃣ Message de confirmation
+            $this->addFlash('success', 'Votre message a bien été envoyé.');
+
             return $this->redirectToRoute('contact');
         }
+
         return $this->render('contact/index.html.twig', [
             'contactForm' => $form->createView(),
         ]);

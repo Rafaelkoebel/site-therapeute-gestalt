@@ -116,7 +116,7 @@ h3 {
     top: 64px;
     left: 0;
     width: 100%;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0);
 }
 
 .main-navigation.is-open {
@@ -143,6 +143,43 @@ h3 {
     font-size: 1.5rem;
     cursor: pointer;
 }
+
+/* =========================
+   NAVIGATION - BOUTONS
+========================= */
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 0.75rem;
+}
+
+.nav-btn {
+    display: inline-block;
+    padding: 0.55rem 1.1rem;
+    border-radius: 999px; /* forme "pilule" */
+    background-color: rgba(132, 42, 173, 0.08);
+    color: var(--color-primary);
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition:
+        background-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.2s ease;
+}
+
+.nav-btn:hover,
+.nav-btn:focus {
+    background-color: rgba(132, 42, 173, 0.18);
+    box-shadow: 0 4px 12px rgba(132, 42, 173, 0.25);
+    transform: translateY(-1px);
+}
+
+.nav-btn.is-active {
+    background-color: var(--color-primary);
+    color: #fff;
+    box-shadow: 0 6px 18px rgba(132, 42, 173, 0.35);
+}
+
 
 /* Desktop */
 @media (min-width: 768px) {

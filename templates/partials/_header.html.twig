@@ -13,20 +13,20 @@
             <nav class="main-navigation" aria-label="Navigation principale">
                 <ul class="nav-list">
                     <li>
-                        <a href="{{ path('home') }}">Accueil</a>
+                        <a class="nav-btn" href="{{ path('home') }}">Accueil</a>
                     </li>
                     <li>
-                        <a href="{{ path('page_show', { slug: 'qui-je-suis' }) }}">
+                        <a class="nav-btn" href="{{ path('page_show', { slug: 'qui-je-suis'  }) }}">
                             Qui je suis
                         </a>
                     </li>
                     <li>
-                        <a href="{{ path('info_pratique') }}">
+                        <a class="nav-btn" href="{{ path('info_pratique') }}">
                             Infos pratiques
                         </a>
                     </li>
                     <li class="nav-contact">
-                        <a href="{{ path('contact') }}" class="btn-contact">
+                        <a class="nav-btn" href="{{ path('contact') }}" class="btn-contact">
                             Prendre rendez-vous
                         </a>
                     </li>
