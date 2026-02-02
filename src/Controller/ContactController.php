@@ -36,7 +36,7 @@ class ContactController extends AbstractController
             // 2️⃣ Envoi de l’email
             $email = (new Email())
                 ->from('gestalt@tonsite.fr')
-                ->to('rafael.koebel@gmail.com')
+                ->to('sebancamille@gmail.com')
                 ->replyTo($contact->getEmail())
                 ->subject('Nouveau message depuis le site')
                 ->text(
