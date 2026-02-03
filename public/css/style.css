@@ -3,8 +3,10 @@
 ========================= */
 :root {
     /* Couleurs principales */
-    --color-primary: #842AAD;      /* violet gestalt */
-    --color-secondary: #2AAD97;    /* vert présence */
+    --color-primary: #842AAD;
+    /* violet gestalt */
+    --color-secondary: #2AAD97;
+    /* vert présence */
     --color-accent: #6A3FA0;
 
     /* Fonds */
@@ -40,9 +42,8 @@ body {
     line-height: 1.7;
     color: var(--color-text);
     background: radial-gradient(47.18% 97.62% at 50.08% 50%,
-            rgba(42, 173, 82, 0.3408) 20.67%, rgba(42, 173, 97, 0.2256) 40.87%, 
-            rgba(42, 173, 151, 0.48) 68.27%) 
-            var(--color-bg-main);
+            rgba(42, 173, 82, 0.3408) 20.67%, rgba(42, 173, 97, 0.2256) 40.87%,
+            rgba(42, 173, 151, 0.48) 68.27%) var(--color-bg-main);
 }
 
 a {
@@ -52,7 +53,8 @@ a {
 
 /* =========================
    TYPOGRAPHIE
-========================= */h1 {
+========================= */
+h1 {
     font-size: 2.2rem;
     color: var(--color-primary);
     margin-bottom: 1rem;
@@ -99,6 +101,7 @@ h3 {
 }
 
 .site-title {
+    font-size: large;
     font-weight: 600;
     color: var(--color-primary);
 }
@@ -150,10 +153,11 @@ h3 {
 .nav-btn {
     display: inline-block;
     padding: 0.55rem 1.1rem;
-    border-radius: 999px; /* forme "pilule" */
-    background-color: rgba(132, 42, 173, 0.08);
+    border-radius: 999px;
+    /* forme "pilule" */
+    background-color: #F6FAF8;
     color: var(--color-primary);
-    font-size: 0.95rem;
+    font-size: 0.8rem;
     font-weight: 500;
     transition:
         background-color 0.25s ease,
@@ -163,7 +167,7 @@ h3 {
 
 .nav-btn:hover,
 .nav-btn:focus {
-    background-color: rgba(132, 42, 173, 0.18);
+    background-color: rgba(131, 42, 173, 0.651);
     box-shadow: 0 4px 12px rgba(132, 42, 173, 0.25);
     transform: translateY(-1px);
 }
@@ -190,6 +194,10 @@ h3 {
     .nav-list {
         flex-direction: row;
         gap: 1.5rem;
+    }
+
+    .nav-btn {
+        background-color: rgba(131, 42, 173, 0.08);
     }
 }
 
@@ -293,34 +301,82 @@ h3 {
 }
 
 /* =========================
-   FORMULAIRE
+   FORMULAIRE SYMFONY
 ========================= */
-form {
-    max-width: 600px;
-    margin: 2rem auto;
-    padding: 2rem;
-    background-color: var(--color-bg-card);
+.form-wrapper {
+    max-width: 640px;
+    margin: 3rem auto;
+    padding: 2.5rem;
+    background-color: rgba(255, 255, 255, 0.92);
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-soft);
 }
 
-form label {
-    font-weight: 600;
-    margin-bottom: 0.4rem;
-    display: block;
+.form-wrapper h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--color-primary);
 }
 
-form input,
-form textarea {
+/* Chaque champ */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+/* Labels Symfony */
+.form-group label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--color-text);
+}
+
+/* Champs Symfony */
+.form-group input,
+.form-group textarea {
     width: 100%;
-    padding: 0.8rem;
-    margin-bottom: 1.2rem;
+    padding: 0.8rem 0.9rem;
     border-radius: var(--radius-sm);
     border: 1px solid var(--color-border);
+    font-size: 0.95rem;
+    background-color: #fff;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
-form input:focus,
-form textarea:focus {
+.form-group textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+/* Focus doux */
+.form-group input:focus,
+.form-group textarea:focus {
     outline: none;
     border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(132, 42, 173, 0.15);
+}
+
+/* Bouton */
+.form-submit {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.form-submit button {
+    background-color: var(--color-primary);
+    color: #fff;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 999px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+}
+
+.form-submit button:hover {
+    background-color: var(--color-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(132, 42, 173, 0.35);
 }

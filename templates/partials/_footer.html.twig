@@ -1,47 +1,62 @@
 <footer class="site-footer">
-    <div class="container">
+	<div class="container">
 
-        <div class="footer-content">
+		<div
+			class="footer-content">
 
-            {# Informations #}
-            <div class="footer-block">
-                <h3>Thérapeute Gestalt</h3>
-                <p>
-                    Accompagnement thérapeutique en Gestalt-thérapie<br>
-                    à {{ ville|default('Votre ville') }}
-                </p>
-            </div>
+			{# Informations #}
+			<div class="footer-block">
+				<h3>Thérapeute Gestalt</h3>
+				<p>
+					Accompagnement thérapeutique en Gestalt-thérapie<br>
+					à
+					{{ ville|default('Votre ville') }}
+				</p>
+			</div>
 
-            {# Navigation secondaire #}
-            <div class="footer-block">
-                <h3>Navigation</h3>
-                <ul class="footer-nav">
-                    <li><a href="{{ path('home') }}">Accueil</a></li>
-                    <li><a href="{{ path('page_show', { slug: 'qui-je-suis' }) }}">Qui je suis</a></li>
-                    <li><a href="{{ path('page_show', { slug: 'gestalt-therapie' }) }}">Gestalt-thérapie</a></li>
-                    <li><a href="{{ path('contact') }}">Contact</a></li>
-                </ul>
-            </div>
+			{# Navigation secondaire #}
+			<div class="footer-block">
+				<h3>Navigation</h3>
+				<ul class="footer-nav">
+					<li>
+						<a href="{{ path('home') }}">Accueil</a>
+					</li>
+					<li>
+						<a href="{{ path('page_show', { slug: 'qui-je-suis' }) }}">Qui je suis</a>
+					</li>
+					<li>
+						<a href="{{ path('page_show', { slug: 'gestalt-therapie' }) }}">Gestalt-thérapie</a>
+					</li>
+					<li>
+						<a href="{{ path('contact') }}">Contact</a>
+					</li>
+				</ul>
+			</div>
 
-            {# Contact #}
-            <div class="footer-block">
-                <h3>Contact</h3>
-                <p>
-                    Email : <a href="mailto:contact@exemple.fr">contact@exemple.fr</a><br>
-                    Téléphone : 06 00 00 00 00
-                </p>
-            </div>
+			{# Contact #}
+			<div class="footer-block">
+				<h3>Contact</h3>
+				<p>
+					Email :
+					<a href="mailto:sebancamille@gmail.com">sebancamille@gmail.com</a><br>
+					<a href="tel:0606723563">06 06 72 35 63
+					</a>
+				</p>
+			</div>
 
-        </div>
+		</div>
 
-        <div class="footer-bottom">
-            <p>
-                © {{ "now"|date("Y") }} – Thérapeute Gestalt<br>
-                <small>
-                    Site à visée informative – ne remplace pas un suivi médical
-                </small>
-            </p>
-        </div>
+		<div class="footer-bottom">
+			<p>
+				©
+				{{ "now"|date("Y") }}
+				– Thérapeute Gestalt<br>
+				<small>
+					Site à visée informative – ne remplace pas un suivi médical
+				</small>
+			</p>
+		</div>
 
-    </div>
+	</div>
 </footer>
+

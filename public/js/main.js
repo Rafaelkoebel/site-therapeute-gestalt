@@ -16,3 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+
+if (window.location.pathname === "/contact") {
+    document.getElementById("contact").style.display = "none";
+  }
