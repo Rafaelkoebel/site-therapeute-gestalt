@@ -12,7 +12,7 @@ class HomeController extends AbstractController
     #[Route('/', name: 'home')]
     public function index(PageRepository $pageRepository): Response
     {
-        $page = $pageRepository->findOneBy(['isHome' => true]);
+        $page = $pageRepository->findOneBy(['slug' => 'accueil']);
 
         if (!$page) {
             throw $this->createNotFoundException('Page d’accueil non définie');

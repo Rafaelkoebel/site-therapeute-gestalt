@@ -26,12 +26,15 @@ class PageCrudController extends AbstractCrudController
         return [
             TextField::new('titre'),
             TextField::new('slug')->hideOnForm(),
-            BooleanField::new('isHome', 'Page d’accueil'),
+            IntegerField::new('ordre')
+                ->setHelp('Ordre d’affichage dans le menu'),
             TextEditorField::new('contenu')
                 ->setFormTypeOptions([
                     'attr' => ['rows' => 20],
                 ]),
-            AssociationField::new('therapeute'),
+            AssociationField::new('therapeute')
+                ->setRequired(true)
+                ->setDisabled(true),
         ];
     }
 }

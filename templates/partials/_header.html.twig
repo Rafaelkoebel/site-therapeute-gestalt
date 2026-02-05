@@ -1,45 +1,43 @@
 <header class="site-header">
-    <div class="container">
+	<div class="container">
 
-        <div class="header-inner">
-            {# Logo / Nom #}
-            <div class="site-branding">
-                <a href="{{ path('home') }}" class="site-title">
-                    Thérapeute Gestalt
-                </a>
-            </div>
+		<div
+			class="header-inner">
+			{# Logo / Nom #}
+			<div class="site-branding">
+				<a href="{{ path('home') }}" class="site-title">
+					Thérapeute Gestalt
+				</a>
+			</div>
 
-            {# Navigation principale #}
-            <nav class="main-navigation" aria-label="Navigation principale">
-                <ul class="nav-list">
-                    <li>
-                        <a class="nav-btn" href="{{ path('home') }}">Accueil</a>
-                    </li>
-                    <li>
-                        <a class="nav-btn" href="{{ path('page_show', { slug: 'qui-je-suis'  }) }}">
-                            Qui je suis
-                        </a>
-                    </li>
-                    <li>
-                        <a class="nav-btn" href="{{ path('info_pratique') }}">
-                            Infos pratiques
-                        </a>
-                    </li>
-                    <li class="nav-contact">
-                        <a class="nav-btn" href="{{ path('contact') }}" class="btn-contact">
-                            Prendre rendez-vous
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+			{# Navigation principale #}
+			<nav class="main-navigation" aria-label="Navigation principale">
+				<ul class="nav-list">
+					{% for page in pages %}
+						<li>
+							<a class="nav-btn" href="{{ path('page_show', { slug: page.slug }) }}">
+								{{ page.titre }}
+							</a>
+						</li>
+					{% endfor %}
+					<li>
+						<a class="nav-btn" href="{{ path('info_pratique') }}">
+							Infos pratiques
+						</a>
+					</li>
+					<li class="nav-contact">
+						<a class="nav-btn" href="{{ path('contact') }}" class="btn-contact">
+							Prendre rendez-vous
+						</a>
+					</li>
+				</ul>
+			</nav>
 
-            {# Bouton menu mobile #}
-            <button class="menu-toggle"
-                    aria-label="Ouvrir le menu"
-                    aria-expanded="false">
-                ☰
-            </button>
-        </div>
+			{# Bouton menu mobile #}
+			<button class="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+				☰
+			</button>
+		</div>
 
-    </div>
+	</div>
 </header>
