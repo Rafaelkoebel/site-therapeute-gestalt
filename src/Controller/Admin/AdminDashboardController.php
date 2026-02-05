@@ -6,6 +6,7 @@ use App\Entity\Page;
 use App\Entity\Therapeute;
 use App\Entity\InfoPratique;
 use App\Entity\MessageContact;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -18,7 +19,11 @@ class AdminDashboardController extends AbstractDashboardController
 {
     public function index(): Response
     {
-/*         return parent::index();
+        $this->ensureTherapeuteExists();
+
+        return parent::index();
+
+        /*         return parent::index();
  */
         // Option 1. You can make your dashboard redirect to some common page of your backend
         //
@@ -39,6 +44,24 @@ class AdminDashboardController extends AbstractDashboardController
         // (tip: it's easier if your template extends from @EasyAdmin/page/content.html.twig)
         //
         return $this->render('admin/dashboard.html.twig');
+    }
+
+    private EntityManagerInterface $em;
+
+    public function __construct(EntityManagerInterface $em)
+    {
+        $this->em = $em;
+    }
+
+    private function ensureTherapeuteExists(): void
+    {
+        $therapeute = $this->em->getRepository(Therapeute::class)->find(1);
+
+        if (!$therapeute) {
+            $therapeute = new Therapeute();
+            $this->em->persist($therapeute);
+            $this->em->flush();
+        }
     }
 
     public function configureDashboard(): Dashboard
