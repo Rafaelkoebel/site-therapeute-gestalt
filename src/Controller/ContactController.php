@@ -41,7 +41,8 @@ class ContactController extends AbstractController
                 ->subject('Nouveau message depuis le site')
                 ->text(
                     "Nom : {$contact->getNom()}\n" .
-                        "Email : {$contact->getEmail()}\n\n" .
+                        "Email : {$contact->getEmail()}\n" .
+                        "Téléphone : {$contact->getTelephone()}\n\n" .
                         "Message :\n{$contact->getMessage()}"
                 );
 
