@@ -33,9 +33,26 @@ class ContactType extends AbstractType
                     new Assert\Email(['message' => 'Email invalide.'])
                 ]
             ])
+            ->add('telephone', TextType::class, [
+                'required' => false,
+                'constraints' => [
+                    new Assert\Length([
+                        'max' => 20,
+                        'maxMessage' => 'Le numéro ne peut pas dépasser {{ limit }} caractères.'
+                    ]),
+                    new Assert\Regex([
+                        'pattern' => '/^[0-9+\s().-]*$/',
+                        'message' => 'Numéro de téléphone invalide.'
+                    ])
+                ]
+            ])
             ->add('message', TextareaType::class, [
                 'constraints' => [
-                    new Assert\NotBlank(['message' => 'Veuillez saisir votre message.'])
+                    new Assert\NotBlank(['message' => 'Veuillez saisir votre message.']),
+                    new Assert\Length([
+                        'max' => 5000,
+                        'maxMessage' => 'Message trop long.'
+                    ])
                 ]
             ])
         ;

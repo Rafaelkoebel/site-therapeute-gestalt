@@ -33,8 +33,6 @@ class PageCrudController extends AbstractCrudController
                     'attr' => ['rows' => 20],
                 ]),
             AssociationField::new('therapeute')
-                ->setRequired(true)
-                ->setDisabled(true),
         ];
     }
 }

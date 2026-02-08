@@ -20,6 +20,9 @@ class MessageContact
     #[ORM\Column(length: 255)]
     private ?string $email = null;
 
+    #[ORM\Column(length: 20,)]
+    private ?string $telephone = null;
+
     #[ORM\Column(type: Types::TEXT)]
     private ?string $message = null;
 
@@ -45,6 +48,19 @@ class MessageContact
 
         return $this;
     }
+
+    public function getTelephone(): ?string
+    {
+        return $this->telephone;
+    }
+
+    public function setTelephone(?string $telephone): static
+    {
+        $this->telephone = $telephone;
+
+        return $this;
+    }
+
 
     public function getEmail(): ?string
     {

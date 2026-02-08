@@ -21,7 +21,7 @@ class AdminDashboardController extends AbstractDashboardController
     {
         $this->ensureTherapeuteExists();
 
-        return parent::index();
+        //return parent::index();
 
         /*         return parent::index();
  */
