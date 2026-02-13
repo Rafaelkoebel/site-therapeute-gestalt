@@ -207,6 +207,7 @@ h3 {
 .site-footer {
     background-color: var(--color-secondary);
     color: #fff;
+    margin-top: 4rem;
 }
 
 .footer-content {
@@ -286,20 +287,89 @@ h3 {
 }
 
 /* =========================
-   PAGE CONTENT
+   PAGE CONTENT — VERSION GESTALT
 ========================= */
+
 .page-content {
-    padding: 3.5rem 0;
+    padding: 4rem 0;
+    font-size: 1.05rem;
+    line-height: 1.8;
 }
 
 .page-text {
-    max-width: 720px;
+    max-width: 760px;
+/*     margin: 0 auto;
+ */}
+
+/* Intro douce */
+.page-intro {
+    font-size: 1.2rem;
+    color: var(--color-accent);
+    margin-bottom: 2rem;
 }
 
+/* Paragraphes */
 .page-text p {
-    margin-bottom: 1.2rem;
+    margin-bottom: 1.4rem;
+    color: var(--color-text);
 }
 
+/* Listes */
+.page-text ul,
+.page-text ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.4rem;
+}
+
+.page-text li {
+    margin-bottom: 0.5rem;
+}
+
+/* Citations thérapeutiques */
+.page-text blockquote {
+    border-left: 4px solid var(--color-secondary);
+    padding: 1rem 1.2rem;
+    margin: 2rem 0;
+    background-color: var(--color-bg-soft);
+    border-radius: var(--radius-sm);
+    font-style: italic;
+    color: var(--color-text-soft);
+}
+
+/* Sous-sections respiration */
+.page-section {
+    margin: 3rem 0;
+}
+
+/* Petits encarts (ex : infos pratiques) */
+.page-note {
+    background-color: var(--color-bg-card);
+    padding: 1.3rem 1.5rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-soft);
+/*     margin: 2rem 0;
+ */    font-size: 0.95rem;
+}
+
+/* Séparateur doux */
+.page-divider {
+    height: 1px;
+    background-color: var(--color-border);
+    margin: 3rem 0;
+    opacity: 0.6;
+}
+
+/* Responsive lecture mobile */
+@media (max-width: 768px) {
+    .page-content {
+        padding: 3rem 0;
+        font-size: 1rem;
+    }
+
+    .page-intro {
+        font-size: 1.1rem;
+    }
+}
 /* =========================
    FORMULAIRE SYMFONY
 ========================= */

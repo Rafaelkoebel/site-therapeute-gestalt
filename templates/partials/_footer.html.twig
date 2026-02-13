@@ -10,7 +10,7 @@
 				<p>
 					Accompagnement thérapeutique en Gestalt-thérapie<br>
 					à
-					{{ ville|default('Votre ville') }}
+					{{ ville|default('Blois') }}
 				</p>
 			</div>
 
@@ -22,10 +22,7 @@
 						<a href="{{ path('home') }}">Accueil</a>
 					</li>
 					<li>
-						<a href="{{ path('page_show', { slug: 'qui-je-suis' }) }}">Qui je suis</a>
-					</li>
-					<li>
-						<a href="{{ path('page_show', { slug: 'gestalt-therapie' }) }}">Gestalt-thérapie</a>
+						<a href="{{ path('info_pratique') }}">Infos pratiques</a>
 					</li>
 					<li>
 						<a href="{{ path('contact') }}">Contact</a>
@@ -59,4 +56,3 @@
 
 	</div>
 </footer>
-

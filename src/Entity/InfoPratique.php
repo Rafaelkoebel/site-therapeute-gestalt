@@ -28,9 +28,6 @@ class InfoPratique
     #[ORM\Column(length: 255)]
     private ?string $modalitesPaiement = null;
 
-    #[ORM\Column(type: 'text')]
-    private ?string $cadreAnnulation = null;
-
     #[ORM\ManyToOne(inversedBy: 'infoPratiques')]
     private ?Therapeute $therapeute = null;
 
@@ -95,18 +92,6 @@ class InfoPratique
     public function setModalitesPaiement(string $modalitesPaiement): self
     {
         $this->modalitesPaiement = $modalitesPaiement;
-
-        return $this;
-    }
-
-    public function getCadreAnnulation(): ?string
-    {
-        return $this->cadreAnnulation;
-    }
-
-    public function setCadreAnnulation(string $cadreAnnulation): self
-    {
-        $this->cadreAnnulation = $cadreAnnulation;
 
         return $this;
     }

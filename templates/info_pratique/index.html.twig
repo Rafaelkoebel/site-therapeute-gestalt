@@ -5,7 +5,7 @@
 
 {% block body %}
 	<section class="page-content">
-		<div class="container">
+		<div class="container page-note">
 			<h1>Infos pratiques</h1>
 
 			<ul>
@@ -13,7 +13,7 @@
 					<strong>
 						Lieu :
 					</strong>
-					<a href="https://maps.app.goo.gl/eNvHFeygSjfxcXqe8" target="_blank">
+					<a href="https://www.google.com/maps/place/39+Av.+du+Mar%C3%A9chal+Leclerc,+41000+Blois/@47.5942211,1.3313904,17z/data=!3m1!4b1!4m6!3m5!1s0x47e4a806bd112a9d:0xf02a14d71ce080e!8m2!3d47.5942175!4d1.3339653!16s%2Fg%2F11c43sdjvy?authuser=0&entry=ttu&g_ep=EgoyMDI2MDIxMC4wIKXMDSoASAFQAw%3D%3D" target="_blank" style="text-decoration: underline;">
 						{{ info.lieu }}</a>
 				</li>
 
@@ -30,12 +30,8 @@
 				<li>
 					<strong>Paiement :</strong>
 					{{ info.modalitesPaiement }}</li>
-				<li>
-					<strong>Annulation :</strong>
-					{{ info.cadreAnnulation }}</li>
 			</ul>
 
 		</div>
 	</div>
 {% endblock %}
-

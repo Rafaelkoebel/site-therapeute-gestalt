@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
 {
-    #[Route('/', name: 'home')]
+    #[Route('/', name: 'home')] // modifier la route pour la page d'accueil
     public function index(PageRepository $pageRepository): Response
     {
         $page = $pageRepository->findOneBy(['slug' => 'accueil']);

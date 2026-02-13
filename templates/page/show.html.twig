@@ -1,27 +1,26 @@
 {% extends 'base.html.twig' %}
 
 
-
 {% block body %}
-<section class="page-content page-{{ page.slug }}">
-    <div class="container">
+	<section class="page-content page-{{ page.slug }}">
+		<div class="container">
 
-        <h1>{{ page.titre }}</h1>
+			<h1>{{ page.titre }}</h1>
 
-        <div class="page-text">
-            {{ page.contenu|raw }}
-        </div>
+			<div class="page-text">
+				{{ page.contenu|raw }}
+			</div>
 
-        <div class="pro-frame">
-            <h2>Cadre professionnel</h2>
-            <p>
-                Thérapeute gestalt formé(e) à la Gestalt-thérapie,
-                j’exerce dans le respect du cadre éthique et déontologique.
-            </p>
-        </div>
+			<div class="pro-frame">
+				<h2>Cadre professionnel</h2>
+				<p>
+					Thérapeute gestalt formée à la Gestalt-thérapie,
+					                j’exerce dans le respect du cadre éthique et déontologique.
+				</p>
+			</div>
 
-    </div>
-</section>
+		</div>
+	</section>
 
 
 {% endblock %}
