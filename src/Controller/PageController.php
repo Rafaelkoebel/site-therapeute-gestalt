@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class PageController extends AbstractController
 {
-    #[Route('/{slug}', name: 'page_show')]
+    #[Route('/{slug}', name: 'page_show', requirements: ['slug' => '^(?!login$|admin$|logout$).+'])]
     public function show(string $slug, PageRepository $pageRepository): Response
     {
         $page = $pageRepository->findOneBy(['slug' => $slug]);
