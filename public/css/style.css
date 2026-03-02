@@ -290,6 +290,28 @@ h3 {
    PAGE CONTENT — VERSION GESTALT
 ========================= */
 
+/* Soulignement doux des titres */
+.page-content h1 {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0.4rem;
+}
+
+.page-content h1::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40%;
+    height: 3px;
+    background: linear-gradient(
+        to right,
+        var(--color-secondary),
+        transparent
+    );
+    border-radius: 4px;
+}
+
 .page-content {
     padding: 4rem 0;
     font-size: 1.05rem;
@@ -449,4 +471,42 @@ h3 {
     background-color: var(--color-accent);
     transform: translateY(-2px);
     box-shadow: 0 6px 16px rgba(132, 42, 173, 0.35);
+}
+
+/* halo respire */
+#bg-animation {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.organic-blob {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.3;
+    animation: breathe 3s ease-in-out infinite;
+}
+
+@keyframes breathe {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+/* Particules légères */
+.particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: rgba(255,255,255,0.4);
+    border-radius: 50%;
+    opacity: 0.5;
 }
