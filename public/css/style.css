@@ -492,11 +492,11 @@ h1, h2, h3 {
 
 .organic-blob {
     position: absolute;
-    width: 500px;
-    height: 500px;
+    width: 700px;
+    height: 700px;
     border-radius: 50%;
     filter: blur(80px);
-    opacity: 0.4;
+    opacity: 0.6;
     animation: breathe 3s ease-in-out infinite;
 }
 
@@ -514,7 +514,7 @@ h1, h2, h3 {
     position: absolute;
     width: 6px;
     height: 6px;
-    background: rgba(255,255,255,0.4);
+    background: rgba(255, 255, 255, 0.671);
     border-radius: 50%;
     opacity: 0.5;
 }

@@ -26,12 +26,12 @@ class CreateAdminUserCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $user = new User();
-        $user->setEmail('admin@gestalt.local');
+        $user->setEmail('sebancamille@gmail.com');
         $user->setRoles(['ROLE_ADMIN']);
 
         $hashedPassword = $this->passwordHasher->hashPassword(
             $user,
-            'admin1234' // ⚠️ change après
+            'Bretagnetahiti0716&' 
         );
 
         $user->setPassword($hashedPassword);
