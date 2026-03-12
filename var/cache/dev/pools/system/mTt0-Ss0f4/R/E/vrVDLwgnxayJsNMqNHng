@@ -1,0 +1,59 @@
+<?php //easyadmin.routes.fqcn_to_route
+
+return [PHP_INT_MAX, [
+    'App\\Controller\\Admin\\AdminDashboardController' => [
+        '' => [
+            '' => 'admin',
+        ],
+        'App\\Controller\\Admin\\InfoPratiqueCrudController' => [
+            'index' => 'admin_info_pratique_index',
+            'new' => 'admin_info_pratique_new',
+            'batchDelete' => 'admin_info_pratique_batch_delete',
+            'autocomplete' => 'admin_info_pratique_autocomplete',
+            'renderFilters' => 'admin_info_pratique_render_filters',
+            'edit' => 'admin_info_pratique_edit',
+            'delete' => 'admin_info_pratique_delete',
+            'detail' => 'admin_info_pratique_detail',
+        ],
+        'App\\Controller\\Admin\\MessageContactCrudController' => [
+            'index' => 'admin_message_contact_index',
+            'new' => 'admin_message_contact_new',
+            'batchDelete' => 'admin_message_contact_batch_delete',
+            'autocomplete' => 'admin_message_contact_autocomplete',
+            'renderFilters' => 'admin_message_contact_render_filters',
+            'edit' => 'admin_message_contact_edit',
+            'delete' => 'admin_message_contact_delete',
+            'detail' => 'admin_message_contact_detail',
+        ],
+        'App\\Controller\\Admin\\MotifConsultationCrudController' => [
+            'index' => 'admin_motif_consultation_index',
+            'new' => 'admin_motif_consultation_new',
+            'batchDelete' => 'admin_motif_consultation_batch_delete',
+            'autocomplete' => 'admin_motif_consultation_autocomplete',
+            'renderFilters' => 'admin_motif_consultation_render_filters',
+            'edit' => 'admin_motif_consultation_edit',
+            'delete' => 'admin_motif_consultation_delete',
+            'detail' => 'admin_motif_consultation_detail',
+        ],
+        'App\\Controller\\Admin\\PageCrudController' => [
+            'index' => 'admin_page_index',
+            'new' => 'admin_page_new',
+            'batchDelete' => 'admin_page_batch_delete',
+            'autocomplete' => 'admin_page_autocomplete',
+            'renderFilters' => 'admin_page_render_filters',
+            'edit' => 'admin_page_edit',
+            'delete' => 'admin_page_delete',
+            'detail' => 'admin_page_detail',
+        ],
+        'App\\Controller\\Admin\\TherapeuteCrudController' => [
+            'index' => 'admin_therapeute_index',
+            'new' => 'admin_therapeute_new',
+            'batchDelete' => 'admin_therapeute_batch_delete',
+            'autocomplete' => 'admin_therapeute_autocomplete',
+            'renderFilters' => 'admin_therapeute_render_filters',
+            'edit' => 'admin_therapeute_edit',
+            'delete' => 'admin_therapeute_delete',
+            'detail' => 'admin_therapeute_detail',
+        ],
+    ],
+]];
